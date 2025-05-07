@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ThNhan SENSI</title>
+  <style>
+    body {
+      background-color: #0d0d1a;
+      font-family: monospace;
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      border: 2px solid #9900cc;
+      margin: 50px auto;
+      width: 600px;
+      display: flex;
+    }
+    .left, .right {
+      padding: 20px;
+    }
+    .left {
+      width: 50%;
+      border-right: 2px solid #9900cc;
+    }
+    .right {
+      width: 50%;
+    }
+    .logo {
+      width: 100%;
+      max-width: 120px;
+      display: block;
+      margin: 0 auto 20px;
+    }
+    h1 {
+      color: #ccff00;
+      margin: 0 0 10px;
+    }
+    .title {
+      color: white;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      margin: 10px 0;
+      background: black;
+      border: 2px solid #9900cc;
+      color: white;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #cc33ff;
+      border: none;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .info {
+      font-size: 14px;
+    }
+    .info p {
+      margin: 6px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left">
+      <h1>ThNhan <span style="color: white;">SENSI</span></h1>
+      <img src="https://i.imgur.com/ihd9Swa.png" alt="Logo" class="logo">
+      <label>Username</label>
+      <input type="text" id="username" placeholder="Enter username">
+      <label>Password</label>
+      <input type="password" id="password" placeholder="Enter password">
+      <button onclick="login()">SIGN IN</button>
+    </div>
+    <div class="right">
+      <div class="title">INFORMATION</div>
+      <div class="info">
+        <p>- Admin : Lê Thiện Nhân</p>
+        <p>- Username : ThienNhan</p>
+        <p>- Password : 1.0</p>
+        <p>- Email : N/A</p>
+        <p id="loginDate">- Login Date : ...</p>
+        <p>- ID : 1232912</p>
+        <p>- Expiry : 5day</p>
+        <p>- Status : N/A</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Hiển thị ngày giờ hiện tại
+    const now = new Date();
+    const formattedDate = now.toLocaleDateString('en-GB');
+    const formattedTime = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+    document.getElementById("loginDate").textContent = `- Login Date : ${formattedDate} / ${formattedTime}`;
+
+    // Xác thực và chuyển trang
+    function login() {
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+      if (user === "ThienNhan" && pass === "1.0") {
+        window.location.href = "https://nhandepzaihub.github.io/Loading/"; // chuyển sang menu.html
+      } else {
+        alert("Sai tài khoản hoặc mật khẩu!");
+      }
+    }
+  </script>
+</body>
+</html>
